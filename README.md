@@ -31,8 +31,7 @@ Hello, Temporal!
 1. `docker compose exec temporal temporal worker deployment describe --name my-app` see a list of deployements.
 1. `docker compose exec temporal temporal worker deployment set-current-version --deployment-name my-app --build-id build-1` deploy the worker.
 
-### Cloud Testing
-
+### Google Cloud Testing
 
 ### Resources 
 - [Deploy a Serverless Worker on GCP Cloud Run](https://docs.temporal.io/production-deployment/worker-deployments/serverless-workers/cloud-run)
