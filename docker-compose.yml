@@ -1,0 +1,34 @@
+services:
+
+  temporal:
+    container_name: temporal
+    image: temporalio/temporal:1.8.2
+    command: "server start-dev --ip 0.0.0.0"
+    ports:
+      - 7233:7233
+      - 8233:8233
+    healthcheck:
+      test: ["CMD", "temporal", "operator", "cluster", "health", "--address", "localhost:7233"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+
+  worker:
+    container_name: worker
+    build:
+      context: .
+    environment:
+      NODE_ENV: production
+      TEMPORAL_PROFILE: preview
+    volumes:
+      - ./temporal.toml:/etc/temporalio/temporal.toml:ro
+    depends_on:
+      temporal:
+        condition: service_healthy
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true

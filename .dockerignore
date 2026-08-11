@@ -1,0 +1,13 @@
+.git
+.direnv
+.envrc
+.npm-global
+node_modules
+lib
+workflow-bundle.js
+*.tsbuildinfo
+Dockerfile
+.dockerignore
+docker-compose.yml
+flake.nix
+flake.lock

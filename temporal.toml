@@ -1,0 +1,10 @@
+# Local Development
+[profile.default]
+address = "localhost:7233"
+namespace = "default"
+
+
+# Used for Testing Docker Compose
+[profile.preview]
+address = "temporal:7233"
+namespace = "default"
