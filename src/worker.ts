@@ -19,21 +19,20 @@ async function run() {
 
   const connection = await NativeConnection.connect(config.connectionOptions);
   const taskQueue = process.env.TEMPORAL_TASK_QUEUE || 'production-sample';
+  const buildId = process.env.BUILD_ID || 'build-1';
 
   try {
     const worker = await Worker.create({
-    connection,
-    namespace: config.namespace,
-    taskQueue,
-    ...workflowOption(),
-    activities,
-    /*
-    workerDeploymentOptions: {
-      version: { deploymentName: 'my-app', buildId: 'build-1' },
-      useWorkerVersioning: true,
-      defaultVersioningBehavior: 'PINNED'
-    }
-    */
+      ...workflowOption(),
+      connection,
+      taskQueue,
+      activities,
+      namespace: config.namespace,
+      workerDeploymentOptions: {
+        version: { deploymentName: 'my-app', buildId },
+        useWorkerVersioning: true,
+        defaultVersioningBehavior: 'PINNED'
+      }
     });
 
     await worker.run();

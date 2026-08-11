@@ -24,6 +24,7 @@ services:
     environment:
       NODE_ENV: production
       TEMPORAL_PROFILE: preview
+      BUILD_ID: build-1
     volumes:
       - ./temporal.toml:/etc/temporalio/temporal.toml:ro
     depends_on:
