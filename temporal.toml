@@ -8,3 +8,8 @@ namespace = "default"
 [profile.preview]
 address = "temporal:7233"
 namespace = "default"
+
+# Use for Production
+[profile.production]
+address = "serverless-gcp.sdvdw.tmprl.cloud:7233"
+namespace = "serverless-gcp.sdvdw"
