@@ -9,6 +9,10 @@ RUN npm run build:workflow
 
 FROM node:24-slim
 
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends ca-certificates \
+ && rm -rf /var/lib/apt/lists/*
+
 ARG NODE_ENV=production
 ARG BUILD_ID=build-1
 ARG TEMPORAL_PROFILE=preview
