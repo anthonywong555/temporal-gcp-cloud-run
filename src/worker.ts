@@ -29,7 +29,7 @@ async function run() {
       activities,
       namespace: config.namespace,
       workerDeploymentOptions: {
-        version: { deploymentName: 'my-app', buildId },
+        version: { deploymentName: 'hello-world', buildId },
         useWorkerVersioning: true,
         defaultVersioningBehavior: 'PINNED'
       }

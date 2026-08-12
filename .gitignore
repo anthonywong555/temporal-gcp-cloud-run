@@ -152,3 +152,12 @@ workflow-bundle.js
 
 # Google Cloud
 .gcloud
+
+# Terraform
+.terraform
+.terraform.lock.hcl
+terraform.tfstate
+main.tf
+outputs.tf
+provider.tf
+terraform.tfstate.backup
