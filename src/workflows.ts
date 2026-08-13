@@ -7,5 +7,7 @@ const { greet } = proxyActivities<typeof activities>({
 
 //setWorkflowOptions({ versioningBehavior: 'PINNED' }, example);
 export async function example(name: string): Promise<string> {
-  return await greet(name);
+  await greet(name);
+  await greet(name);
+  return greet(name);
 }
